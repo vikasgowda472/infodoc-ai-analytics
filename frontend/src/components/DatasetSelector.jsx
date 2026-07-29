@@ -31,7 +31,7 @@ export default function DatasetSelector({ datasets, activeDatasetId, onSelectDat
   };
 
   return (
-    <div className="glass-panel" style={{ padding: '1.2rem 1.5rem', marginBottom: '1.5rem' }}>
+    <div className="glass-panel no-print" style={{ padding: '1.2rem 1.5rem', marginBottom: '1.5rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         
         <div>
