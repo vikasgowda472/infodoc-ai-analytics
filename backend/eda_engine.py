@@ -99,12 +99,13 @@ class EDAEngine:
                 "matrix": corr_df.round(3).values.tolist()
             }
 
-        # 3. Anomaly Detection via Isolation Forest & Z-Score
+        # 3. Anomaly Detection via Isolation Forest & Z-Score (Optimized for speed)
         anomalies = []
         if len(numeric_cols) >= 1 and total_rows >= 10:
             try:
                 num_df = df[numeric_cols].fillna(df[numeric_cols].median())
-                iso = IsolationForest(contamination=0.05, random_state=42)
+                max_s = min(250, len(num_df))
+                iso = IsolationForest(n_estimators=20, max_samples=max_s, contamination=0.05, random_state=42)
                 preds = iso.fit_predict(num_df)
                 anomaly_indices = np.where(preds == -1)[0]
 

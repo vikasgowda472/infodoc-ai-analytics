@@ -7,7 +7,7 @@ export default function ExecutiveReport({ datasetId }) {
 
   useEffect(() => {
     if (!datasetId) return;
-    fetch(`http://127.0.0.1:8000/api/report/${datasetId}`)
+    fetch(`/api/report/${datasetId}`)
       .then(res => res.json())
       .then(data => { setReport(data); setLoading(false); })
       .catch(() => setLoading(false));

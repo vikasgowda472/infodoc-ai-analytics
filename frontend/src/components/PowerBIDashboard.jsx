@@ -65,7 +65,7 @@ export default function PowerBIDashboard({ datasetId, edaData }) {
   const anyType = (typeStr, keywords) => keywords.some(k => typeStr.includes(k));
 
   const runSql = async (sql) => {
-    const res = await fetch('http://127.0.0.1:8000/api/query', {
+    const res = await fetch('/api/query', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ dataset_id: datasetId, query: sql, is_raw_sql: true })

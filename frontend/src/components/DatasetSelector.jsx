@@ -13,7 +13,7 @@ export default function DatasetSelector({ datasets, activeDatasetId, onSelectDat
     formData.append('file', file);
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/upload', {
+      const res = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });

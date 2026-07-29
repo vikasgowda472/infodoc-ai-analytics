@@ -16,7 +16,7 @@ export default function App() {
   // Fetch dataset list on load
   const fetchDatasets = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/datasets');
+      const res = await fetch('/api/datasets');
       const data = await res.json();
       if (data.status === 'SUCCESS' && data.datasets.length > 0) {
         setDatasets(data.datasets);
@@ -33,7 +33,7 @@ export default function App() {
   const fetchEDA = async (datasetId) => {
     if (!datasetId) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/eda/${datasetId}`);
+      const res = await fetch(`/api/eda/${datasetId}`);
       const data = await res.json();
       if (data.status === 'SUCCESS') {
         setEdaData(data);
